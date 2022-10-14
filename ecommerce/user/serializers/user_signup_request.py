@@ -17,10 +17,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         except Exception:
             resp = {"message" : "User not able to be created"}
             return resp
-        
-        
 
-    
     class Meta:
 
         model = User
