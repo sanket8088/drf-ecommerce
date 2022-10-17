@@ -1,3 +1,5 @@
 from user.serializers.signup_request import SignUpRequestSerializer
 from user.serializers.user_signup_request import UserSerializer
 from user.serializers.login_request import LoginRequestSerializer
+from user.serializers.add_address_request import AddAddressRequestSerializer
+from user.serializers.put_delete_address_request import PutAddressRequestSerializer
