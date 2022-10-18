@@ -1,0 +1,1 @@
+from products.serializer.add_categories_request import AddCategoriesRequestSerializer
