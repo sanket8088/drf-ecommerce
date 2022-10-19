@@ -21,6 +21,8 @@ class LoginView(APIView):
             user_instance = qs[0]
             password_check = user_instance.check_password(password)
             if password_check:
+                if not user_instance.otp_verified:
+                    return Response({"msg" : "OTP not validated"}, status = 400)        
                 token, created = Token.objects.get_or_create(user=user_instance)
                 return Response({"key" : token.key}, status = 200)
             else:

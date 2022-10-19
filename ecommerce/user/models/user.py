@@ -12,6 +12,7 @@ class User(AbstractUser):
     username = None
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name"]
+    otp_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
