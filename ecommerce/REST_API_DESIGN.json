@@ -1,0 +1,38 @@
+category (id, name, description) --- > products
+
+
+127.0.0.1:8000/api/products/category    (CRUD operation --- POST - Adding data to db
+                                                            GET - Fetch all the data in category table)
+
+{
+    "data": [
+        {
+            "id": 1,
+            "category_name": "Footwear",
+            "description": "for feet"
+        },
+        {
+            "id": 2,
+            "category_name": "Top wear",
+            "description": "clothes"
+        }]}
+
+
+
+
+127.0.0.1:8000/api/products/category/category_id    (CRUD operation --- PUT - Update entry
+                                                    GET - Fetch all the data in category table for the specific id
+                                                    DELETE - Deleting the entry inside db)
+
+127.0.0.1:8000/api/products/category/category_id/product    (CRUD operation --- Post - to add data
+                                                                                get - Get all prpoducts of categories for specific category id
+
+
+127.0.0.1:8000/api/products/category/category_id/product/product_id    (CRUD operation --- PUT - to update product entry
+                                                                                get - Get  prpoducts of specific product id
+                                                                                Delete - to delete a product
+
+
+
+                                                                                category id -1 (10,12)
+                                                                                category id -3 (88,89)

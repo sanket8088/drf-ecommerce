@@ -1,1 +1,3 @@
 from products.views.add_categories_view import AddCategoriesView
+from products.views.fetch_products_view import GetProductsView
+from products.views.fetch_single_product_view import GetSingleProductView

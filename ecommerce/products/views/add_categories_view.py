@@ -11,13 +11,18 @@ class AddCategoriesView(APIView):
 
     permission_classes = [(IsAuthenticated)]
 
+    # Internal team api
     def post(self,request):
-        req_data = request.data
-        request_data = AddCategoriesRequestSerializer(data=req_data)
-        login_request_data = request_data.is_valid(raise_exception=True)
-        request_data = request_data.validated_data
-        qs = Categories.objects.create(category_name = request_data.get("category_name"), description = request_data.get("description"))
-        return Response({"id" : qs.id, "category_name" : qs.category_name}, status = 200)
+        user = request.user
+        if user.is_staff:
+            req_data = request.data
+            request_data = AddCategoriesRequestSerializer(data=req_data)
+            login_request_data = request_data.is_valid(raise_exception=True)
+            request_data = request_data.validated_data
+            qs = Categories.objects.create(category_name = request_data.get("category_name"), description = request_data.get("description"))
+            return Response({"id" : qs.id, "category_name" : qs.category_name}, status = 200)
+        else:
+            return Response({"msg" : "Access denied"}, status = 401)
 
     
     def get(self,request):
